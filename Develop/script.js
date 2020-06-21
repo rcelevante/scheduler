@@ -1,4 +1,4 @@
-$('#today').text(moment().format('dddd') + ", " + moment().format('MMMM Do YYYY'));
+$('#today').text(moment().format('dddd') + ", " + moment().format('MMMM Do YYYY, h:mm a'));
 
 let timeSlot = {
     "8 AM": "",
@@ -70,7 +70,7 @@ function startLocalStorage() {
   localStorage.setItem('timeSlot', JSON.stringify(timeSlot));
 };
 
-function saveToLocalStorage(dayObj) {
+function saveLocalStorage(dayObj) {
   localStorage.setItem('timeSlot', JSON.stringify(dayObj));
 }
 
@@ -82,11 +82,11 @@ function saveSchedule(hourString, val) {
   let workHours = JSON.parse(localStorage.getItem('timeSlot'));
   workHours[hourString] = val
 
-  saveToLocalStorage(workHours);
+  saveLocalStorage(workHours);
 }
 
 function updateTasks(dayObject) {
-  $(".calendar-row").each(function(index) {
+  $(".calendar-row").each(function(i) {
     let res = $(this).children("div");
     $(this).children("textarea").text(dayObject[res.text()]);
   })
