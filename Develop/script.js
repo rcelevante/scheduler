@@ -26,12 +26,12 @@ for(const property in timeSlot) {
   let textEntry = "#text-entry" + counter;
   $(textEntry).text(timeSlot[property]);
   let timeId = "#time" + counter;
-  let presentHour = moment().hour();
+  let currentHour = moment().hour();
   let timeString = $(timeId).text();
   let timeNumber = hourNumberFromHourString(timeString);  
-  if(timeNumber < presentHour) {
+  if(timeNumber < currentHour) {
     $(textEntry).addClass("past");
-  } else if (timeNumber > presentHour) {
+  } else if (timeNumber > currentHour) {
     $(textEntry).addClass("future");
   } else {
     $(textEntry).addClass("present");
