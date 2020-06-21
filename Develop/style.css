@@ -21,19 +21,10 @@ textarea{
   border-bottom: 10px solid black;
 }
 
-.description{
-  white-space: pre-wrap;
-}
-
-.time-block{
-  text-align: center;
-  border-radius: 15px;
-}
-
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 2px solid white;;
 }
 
 .hour {
@@ -44,21 +35,21 @@ textarea{
 
 .past {
   background-color: #d3d3d3;
-  color: white;
+  color: black;
 }
 
 .present {
   background-color: #ff6961;
-  color: white;
+  color: black;
 }
 
 .future {
   background-color: #77dd77;
-  color: white;
+  color: black;
 }
 
 .saveBtn {
-  border-left: 1px solid black;
+  border-left: 3px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
@@ -67,5 +58,6 @@ textarea{
 
 .saveBtn i:hover {
   font-size: 30px;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
+  color: rgb(104, 255, 104);
 }

@@ -26,12 +26,12 @@ for(const property in timeSlot) {
   let textEntry = "#text-entry" + counter;
   $(textEntry).text(timeSlot[property]);
   let timeId = "#time" + counter;
-  let presentTime = moment().hour();
+  let presentHour = moment().hour();
   let timeString = $(timeId).text();
   let timeNumber = hourNumberFromHourString(timeString);  
-  if(timeNumber < presentTime) {
+  if(timeNumber < presentHour) {
     $(textEntry).addClass("past");
-  } else if (timeNumber > presentTime) {
+  } else if (timeNumber > presentHour) {
     $(textEntry).addClass("future");
   } else {
     $(textEntry).addClass("present");
@@ -70,8 +70,8 @@ function startLocalStorage() {
   localStorage.setItem('timeSlot', JSON.stringify(timeSlot));
 };
 
-function saveLocalStorage(dayObj) {
-  localStorage.setItem('timeSlot', JSON.stringify(dayObj));
+function saveLocalStorage(text) {
+  localStorage.setItem('timeSlot', JSON.stringify(text));
 }
 
 function saveSchedule(hourString, val) {
@@ -79,15 +79,15 @@ function saveSchedule(hourString, val) {
     startLocalStorage();
   }
 
-  let workHours = JSON.parse(localStorage.getItem('timeSlot'));
-  workHours[hourString] = val
+  let workTime = JSON.parse(localStorage.getItem('timeSlot'));
+  workTime[hourString] = val
 
-  saveLocalStorage(workHours);
+  saveLocalStorage(workTime);
 }
 
-function updateTasks(dayObject) {
+function updateTasks(typedText) {
   $(".calendar-row").each(function(i) {
     let res = $(this).children("div");
-    $(this).children("textarea").text(dayObject[res.text()]);
+    $(this).children("textarea").text(typedText[res.text()]);
   })
 }
